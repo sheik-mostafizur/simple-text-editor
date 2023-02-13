@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple text editor</title>
+    <!-- fontawesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="text_editor_area">
+        <div class="controller">
+          <ul class="controller_items">
+            <li title="bold" class="item"><i class="fa-solid fa-bold"></i></li>
+            <li title="italic" class="item">
+              <i class="fa-solid fa-italic"></i>
+            </li>
+            <li title="underline" class="item">
+              <i class="fa-solid fa-underline"></i>
+            </li>
+            <li title="left" class="item">
+              <i class="fa-solid fa-align-left"></i>
+            </li>
+            <li title="center" class="item">
+              <i class="fa-solid fa-align-center"></i>
+            </li>
+            <li title="right" class="item">
+              <i class="fa-solid fa-align-right"></i>
+            </li>
+            <li title="justify" class="item">
+              <i class="fa-solid fa-align-justify"></i>
+            </li>
+            <li title="line-height" class="item">
+              <i class="fa-solid fa-text-height"></i><input type="text" />
+            </li>
+            <li title="letter-spacing" class="item">
+              <i class="fa-solid fa-text-width"></i><input type="text" />
+            </li>
+            <li title="font-size"><input type="text" class="size" /></li>
+            <li title="color"><input type="color" class="color" /></li>
+            <li title="reset-styles" class="item">
+              <i class="fa-solid fa-rotate-right"></i>
+            </li>
+            <li title="clear-text" class="item">
+              <i class="fa-solid fa-broom"></i>
+            </li>
+          </ul>
+        </div>
+        <div class="content">
+          <textarea name="user-text" id="user-text">
+Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga, voluptatum! Error minus, ad, cupiditate eius praesentium rem placeat odit inventore non temporibus ducimus excepturi voluptatum?</textarea
+          >
+        </div>
+      </div>
+    </div>
+    <!-- script file -->
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>
