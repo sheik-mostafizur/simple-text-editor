@@ -4,16 +4,34 @@ window.onload = function () {
 
 // start our main function
 function main() {
-  const controller_items = document.querySelectorAll(".controller_items li");
+  const controller_items = document.querySelectorAll(
+    ".controller_items li[title]"
+  );
+  const controller_itemsInput = document.querySelectorAll(
+    ".controller_items li[title] input"
+  );
+
+  // change font style
   [...controller_items].forEach((item) => {
     item.addEventListener("click", controller(item));
   });
+  // change font size
+  [...controller_itemsInput].forEach((item) => {
+    item.addEventListener("keyup", controllerInput(item));
+  });
+
+  // change color
+  controller_itemsInput[3].addEventListener("change", function (e) {
+    const textArea = document.querySelector("#user-text");
+    textArea.style.color = e.target.value;
+  });
 }
 
+// controller
 function controller(el) {
   const textArea = document.querySelector("#user-text");
+  const titleValue = el.title;
   return function () {
-    const titleValue = el.title;
     switch (titleValue) {
       case "bold":
         bold(textArea);
@@ -36,27 +54,35 @@ function controller(el) {
       case "justify":
         justify(textArea);
         break;
-      case "line-height":
-        textArea.style.lineHeight = "normal";
-        break;
-      case "letter-spacing":
-        textArea.style.letterSpacing = "normal";
-        break;
-      case "font-size":
-        textArea.style.fontSize = "normal";
-        break;
-      case "color":
-        textArea.style.color = "red";
-        break;
       case "reset-styles":
-        // please clear all style
+        resetStyle();
         break;
       case "clear-text":
         textArea.innerText = "";
         break;
 
       default:
-        console.log("not style");
+        break;
+    }
+  };
+}
+
+// controller input
+function controllerInput(el) {
+  const textArea = document.querySelector("#user-text");
+  const titleValue = el.className;
+  return function () {
+    switch (titleValue) {
+      case "line-height":
+        lineHeight(el, textArea);
+        break;
+      case "letter-spacing":
+        letterSpacing(el, textArea);
+        break;
+      case "font-size":
+        fontSize(el, textArea);
+        break;
+      default:
         break;
     }
   };
@@ -124,4 +150,52 @@ function justify(el) {
   } else {
     el.style.textAlign = "justify";
   }
+}
+
+// style for  line height
+function lineHeight(el, textArea) {
+  if (el.value <= 0) {
+    el.value = "22";
+    return (textArea.style.lineHeight = el.value + "px");
+  } else {
+    textArea.style.lineHeight = el.value + "px";
+  }
+}
+
+// style for  letter Spacing
+function letterSpacing(el, textArea) {
+  if (el.value <= 0) {
+    el.value = "0";
+    return (textArea.style.letterSpacing = el.value + "px");
+  } else {
+    textArea.style.letterSpacing = el.value + "px";
+  }
+}
+
+// style for  font size
+function fontSize(el, textArea) {
+  if (el.value <= 0) {
+    el.value = "16";
+    return (textArea.style.fontSize = el.value + "px");
+  } else {
+    textArea.style.fontSize = el.value + "px";
+    textArea.style.lineHeight = "normal";
+    textArea.style.letterSpacing = "normal";
+  }
+}
+
+// reset all style and back default stayle
+function resetStyle() {
+  const textArea = document.querySelector("#user-text");
+  const [lineHeight, letterSpacing, fontSize, color] = [
+    ...document.querySelectorAll(".controller_items li[title] input"),
+  ];
+  lineHeight.value = "22";
+  letterSpacing.value = "0";
+  fontSize.value = "16";
+  color.value = "#000000";
+
+  textArea.classList.remove("textarea-style");
+  textArea.classList.add("textarea-style");
+  textArea.style = "";
 }

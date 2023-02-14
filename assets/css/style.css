@@ -17,8 +17,6 @@
 }
 
 /* text_editor_area */
-.text_editor_area {
-}
 /* controller */
 .controller {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -49,7 +47,7 @@
   padding-left: 5px;
 }
 
-.controller .controller_items li .size,
+.controller .controller_items li .font-size,
 .controller .controller_items li .color {
   width: 35px;
   height: 30px;
@@ -61,10 +59,12 @@
 .content {
   margin-top: 1rem;
 }
-.content textarea {
+.content .textarea-style {
   width: 100%;
   height: 400px;
-  font-size: 1rem;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0px;
   padding: 0.5rem;
   margin-bottom: -4px;
   outline: none;
