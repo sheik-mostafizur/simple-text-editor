@@ -26,6 +26,7 @@ body{
   padding: 2rem 1rem;
   display: flex;
   justify-content: center;
+  background: white;
 }
 .controller .controller_items {
   list-style: none;
