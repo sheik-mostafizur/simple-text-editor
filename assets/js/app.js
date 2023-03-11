@@ -54,7 +54,7 @@ function controller(el) {
       case "justify":
         justify(textArea);
         break;
-      case "reset-styles":
+      case "clear-text":
         resetStyle();
         break;
       case "clear-text":
